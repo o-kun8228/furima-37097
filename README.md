@@ -24,7 +24,7 @@ items
 |status_id            |integer   |null: false                  |
 |fee_id               |integer   |null: false                  |
 |send_day_id          |integer   |null: false                  |
-|shipping area_id     |integer   |null: false foreign_key: true|
+|shipping_area_id     |integer   |null: false                  |
 |user                 |references|null: false foreign_key: true|
 
 belong_to :user
@@ -35,9 +35,9 @@ buy_log
 
 |Column  |Type      |Options                      |
 |user    |references|null: false foreign_key: true|
-|items   |references|null: false foreign_key: true|
+|item    |references|null: false foreign_key: true|
 
-belong_to :items
+belong_to :item
 has_one :buyer_address
 belong_to :user
 
@@ -45,7 +45,7 @@ buyer_address
 
 |Column          |Type      |Options                      |
 |postal_code     |string    |null: false                  |
-|todoufuken_id   |integer   |null: false                  |
+|shipping_area_id|integer   |null: false                  |
 |city            |string    |null: fal                    |
 |address         |string    |null: false                  |
 |building_name   |string    |                             |
