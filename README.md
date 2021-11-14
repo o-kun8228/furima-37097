@@ -27,7 +27,7 @@ items
 |shipping_area_id     |integer   |null: false                  |
 |user                 |references|null: false foreign_key: true|
 
-belong_to :user
+belongs_to :user
 has_one :buy_log
 
 
@@ -37,9 +37,9 @@ buy_log
 |user    |references|null: false foreign_key: true|
 |item    |references|null: false foreign_key: true|
 
-belong_to :item
+belongs_to :item
 has_one :buyer_address
-belong_to :user
+belongs_to :user
 
 buyer_address
 
