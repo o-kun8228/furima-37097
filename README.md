@@ -11,6 +11,7 @@ users
 |birthday                    |date  |null: false                        |
 
 has_many :items
+has_one : buy_log
 
 
 
@@ -31,7 +32,7 @@ belongs_to :user
 has_one :buy_log
 
 
-buy_log
+buy_logs
 
 |Column  |Type      |Options                      |
 |user    |references|null: false foreign_key: true|
@@ -41,7 +42,7 @@ belongs_to :item
 has_one :buyer_address
 belongs_to :user
 
-buyer_address
+buyer_addresses
 
 |Column          |Type      |Options                      |
 |postal_code     |string    |null: false                  |
