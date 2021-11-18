@@ -95,13 +95,15 @@ RSpec.describe User, type: :model do
       it '姓（全角）が空だと登録できない' do
         @user.family_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name is invalid")
+        
+        expect(@user.errors.full_messages).to include("Family name can't be blank")
       end
 
 
       it '姓（全角）に半角文字が含まれていると登録できない' do
         @user.family_name = "aaaa"
         @user.valid?
+       
         expect(@user.errors.full_messages).to include("Family name is invalid")
       end
 
@@ -109,7 +111,8 @@ RSpec.describe User, type: :model do
       it '名（全角）が空だと登録できない' do
         @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name is invalid")
+        
+        expect(@user.errors.full_messages).to include("First name can't be blank")
       end
 
 
@@ -123,7 +126,8 @@ RSpec.describe User, type: :model do
       it '姓（カナ）が空だと登録できない' do
         @user.family_name_zenkaku_katakana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name zenkaku katakana is invalid")
+        
+        expect(@user.errors.full_messages).to include("Family name zenkaku katakana can't be blank")
       end
 
 
@@ -136,7 +140,8 @@ RSpec.describe User, type: :model do
       it '名（カナ）が空だと登録できない' do
         @user.first_name_zenkaku_katakana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name zenkaku katakana is invalid")
+        binding.pry
+        expect(@user.errors.full_messages).to include("First name zenkaku katakana can't be blank")
       end
 
 

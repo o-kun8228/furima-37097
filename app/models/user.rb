@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -13,7 +12,7 @@ class User < ApplicationRecord
     end
 
 
-  with_options presence: true, format: {with: /\A[ァ-ヶー－]+\z/} do
+  with_options presence: true, format: {with: /\A[ァ-ヶー]+\z/ } do
       validates :family_name_zenkaku_katakana
       validates :first_name_zenkaku_katakana
     end
