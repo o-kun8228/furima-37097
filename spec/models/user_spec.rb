@@ -13,30 +13,28 @@ RSpec.describe User, type: :model do
 
 
   describe 'ユーザー新規登録' do
-    # ユーザー新規登録についてのテストコードを記述します
+    
     context '新規登録できるとき' do
     it "nicknameとemail,passwordとpassword_confirmation,お名前（全角）とお名前カナ（全角）,生年月日が存在すれば登録できる" do
       expect(@user).to be_valid
     end
 
     it 'passwordが6文字以上であれば登録できる' do
-      @user.password = '1234567'
-      @user.password_confirmation = '1234567'
+      @user.password = 'a1234567'
+      @user.password_confirmation = 'a1234567'
       expect(@user).to be_valid
 
     end
   end
     context '新規登録できない場合' do
     it 'nicknameが空では登録できない' do
-      # nicknameが空では登録できないテストコードを記述します
+      
       @user.nickname = ''
-      #user = User.new(nickname: '', email: 'test@example', password: '000000', password_confirmation: '000000')
       @user.valid?
       expect(@user.errors.full_messages).to include("Nickname can't be blank")
     end
     it 'emailが空では登録できない' do
-      # emailが空では登録できないテストコードを記述します
-      #user = User.new(nickname: 'test', email: '', password: '000000', password_confirmation: '000000')
+      
       @user.email = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("Email can't be blank")
