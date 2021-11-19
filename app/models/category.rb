@@ -22,5 +22,10 @@ class Category < ActiveHash::Base
     { id: 20, name: 'ハンドメイド' },
     { id: 21, name: 'その他' }
     
+
   ]
+
+  include ActiveHash::Associations
+  has_many :items
+
   end
