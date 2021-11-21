@@ -11,11 +11,19 @@ class ItemsController < ApplicationController
     end
 
   def create
+    @item = Item.new(room_params)
       if @item.save
         redirect_to root_path
   else
       render :new
     end
   end
+
+  private
+  def item_params
+    params.require(:item).permit(:image, :text).merge(user_id: current_user.id)
+  end
+#permitから下のリードミーを入れていく
+
 
 end
