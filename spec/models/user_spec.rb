@@ -140,7 +140,6 @@ RSpec.describe User, type: :model do
       it '名（カナ）が空だと登録できない' do
         @user.first_name_zenkaku_katakana = ''
         @user.valid?
-        binding.pry
         expect(@user.errors.full_messages).to include("First name zenkaku katakana can't be blank")
       end
 
