@@ -26,9 +26,7 @@ class Item < ApplicationRecord
   validates :send_day_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
   #価格の情報が必須であること
   validates :price , presence: true
-  # , message: "Price can't "}
-  # 価格は¥300~¥9,999,999の間のみに指定されていることを確認するバリデーションを描く
-  # 価格は半角数字のみ指定されていることを確認するバリデーションを書く
+  
   validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300,less_than_or_equal_to: 999999}
 
 end
