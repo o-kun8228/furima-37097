@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!,only:[:new]
 
   def index
-    @items = Item.all
+    #@items = Item.all
   end
 
   def new
@@ -23,7 +23,6 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:image, :brand_name, :price, :description_item, :category_id, :status_id, :fee_id, :send_day_id, :shipping_area_id, ).merge(user_id: current_user.id)
   end
-#permitから下のリードミーを入れていく
 
 
 end

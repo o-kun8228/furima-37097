@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :send_day
   belongs_to :shipping_area
   has_one_attached :image
-
+  belongs_to :user
 
   #商品画像を1枚つけることが必須であること
   validates :image, presence: true
