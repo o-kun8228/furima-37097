@@ -88,7 +88,7 @@ RSpec.describe Item, type: :model do
       end
 
 
-      it '発送までの日数の情報が必須' do
+      it '発送までの日数が必須' do
         @item.send_day = nil
         @item.valid?
         expect(@item.errors.full_messages).to include("Send day can't be blank")
@@ -120,6 +120,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be less than or equal to 999999")
         
+
       end
 
 
