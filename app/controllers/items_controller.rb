@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     end
 
   def create
-    @item = Item.new(room_params)
+    @item = Item.new(item_params)
       if @item.save
         redirect_to root_path
   else
@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:image, :text).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :brand_name, :price, :description_item, :category_id, :status_id, :fee_id, :send_day_id, :shipping_area_id, ).merge(user_id: current_user.id)
   end
 #permitから下のリードミーを入れていく
 
