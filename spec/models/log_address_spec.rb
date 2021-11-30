@@ -2,7 +2,12 @@ require 'rails_helper'
 
 RSpec.describe LogAddress, type: :model do
   before do
-    @log_address = FactoryBot.build(:log_address)
+    user = FactoryBot.create(:user)
+    item = FactoryBot.create(:item)
+    
+    @log_address = FactoryBot.build(:log_address, user_id: user.id, item_id: item.id)
+    sleep 0.1
+
   end
 
   describe '配達先の情報の保存' do
@@ -105,6 +110,20 @@ RSpec.describe LogAddress, type: :model do
         @log_address.valid?
         expect(@log_address.errors.full_messages).to include("Token can't be blank")
       end
+
+      it 'userが紐付いていない場合登録できない' do
+        @log_address.user_id = nil
+        @log_address.valid?
+        expect(@log_address.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'itemが紐付いていない場合登録できない' do
+        @log_address.item_id = nil
+        @log_address.valid?
+        expect(@log_address.errors.full_messages).to include("Item can't be blank")
+      end
+
+
     end
   end
 end

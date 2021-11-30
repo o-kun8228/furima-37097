@@ -13,7 +13,6 @@ class OrdersController < ApplicationController
     
     @log_address = LogAddress.new(log_params)
 
-    @item = Item.find(params[:item_id])
     if @log_address.valid?
 
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
