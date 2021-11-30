@@ -10,6 +10,7 @@ FactoryBot.define do
     address {"11"}
     building_name {"111"}
     phone_number {"09012345678"}
+    token {123456789012345678901}
   end
 end
 

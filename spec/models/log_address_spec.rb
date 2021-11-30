@@ -100,7 +100,11 @@ RSpec.describe LogAddress, type: :model do
         @log_address.valid?
         expect(@log_address.errors.full_messages).to include('Phone number is invalid. Include hyphen(-) cant over 12')
       end
-
+      it 'トークンが空だと保存できないこと' do
+        @log_address.token = nil
+        @log_address.valid?
+        expect(@log_address.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end
