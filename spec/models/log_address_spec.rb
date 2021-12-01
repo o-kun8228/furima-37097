@@ -10,7 +10,7 @@ RSpec.describe LogAddress, type: :model do
 
   end
 
-  describe '配達先の情報の保存' do
+  describe "配達先の情報の保存" do
 
     context '配送先の情報の保存ができるとき' do
 

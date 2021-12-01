@@ -13,7 +13,7 @@ const pay = () => {
  
      const card = { // カードオブジェクトを生成
        number: formData.get("log_address[number]"),              // カード番号
-       cvc: formData.get("log_address[cvc]"),                    // カード裏面の3桁の数字
+       cvc: formData.get("log_address[cvc]"),                    // カード裏面の3桁の数
        exp_month: formData.get("log_address[exp_month]"),        // 有効期限の月
        exp_year: `20${formData.get("log_address[exp_year]")}`,   // 有効期限の年
      };
